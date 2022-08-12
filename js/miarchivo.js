@@ -86,7 +86,7 @@ function addRowTable(objeto){
         let tableElements = document.getElementById("tableElements");
         // creo nodo fila
         nodofila = document.createElement("tr");
-        nodofila.id= "Fila 1";
+     //   nodofila.id= "Fila 1"; 
         tableElements.appendChild(nodofila);
 
         // creo nodo celda para index de array de gastos
