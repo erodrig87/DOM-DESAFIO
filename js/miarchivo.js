@@ -59,8 +59,6 @@ const resetGastos = (dias) => {
     gasto_max =0;
     gasto_min = 0;
 
-
-
    while (arrayGastos.length) {
          arrayGastos.pop();
     }
@@ -78,20 +76,22 @@ const restarDias = (dias) => {
 
 //crea un objeto gasto tomando los parametros ingresados en el form
 const crearGasto = () => {
+    
     fecha = new Date(document.getElementById("inputDate").value);    
     fecha = fecha.toLocaleDateString();
     categoria = document.getElementById("inputTypeExpense").value;
     valor = parseFloat(document.getElementById("inputValueExpense").value);
     remito = document.getElementById("inputTicketNumberExpense").value;
     pago = document.getElementById("inputPaymentMethod").value;
+
     let nuevoGasto = new Gasto(fecha, categoria, valor,remito,pago);
     arrayGastos.push(nuevoGasto);
 
     document.getElementById("inputExpenseForm").reset();
     addRowTable(nuevoGasto);
  }
-//funcion agrega fila de tabla con nuevo gasto
-   
+
+//funcion agrega fila de tabla con nuevo gasto  
 function addRowTable(objeto){
     
         // ubicacioon de elementos de tabla en html
