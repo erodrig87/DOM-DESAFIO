@@ -3,13 +3,13 @@ alert(
 `Se ingresan en automaticamente 9 gastos en 3 categorias diferentes para facilitar pruebas y visualizacion.
         
 Se agrega interaccion con HTML:
-    - Se puede ingresar un nuevo gasto desde el Formularo
-    - La tabla Detalle gasto visualiza los gastos ingresados
-    - Boton 'Reset Gastos', elimina gastos ingresados y elimina contenido de la tabla
+- Se puede ingresar un nuevo gasto desde el Formularo
+- La tabla Detalle gasto visualiza los gastos ingresados
+- Boton 'Reset Gastos', elimina gastos ingresados y elimina contenido de la tabla
         
 Sin interaccion con HTML:
-    -Boton 'Mostrar Calculos', muestra gasto maximo, minimo y promedio total.
-    -Boton 'Filtrar Categoria', solicita ingresar categoria a filtrar y muestra gastos.`);
+-Boton 'Mostrar Calculos', muestra gasto maximo, minimo y promedio total.
+-Boton 'Filtrar Categoria', solicita ingresar categoria a filtrar y muestra gastos.`);
 
 //Def variables globales
 let gasto_total = 0;
