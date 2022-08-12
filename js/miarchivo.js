@@ -1,10 +1,15 @@
 // Mensaje de informacion
-/*alert(`Se ingresan en automaticamente 9 gastos en 3 categorias diferentes para facilitar prueba de calculos.
-Boton 'Crear Gasto', Ingresa gasto en Array de gastos.
-Boton 'Mostrar Gastos', muestra gastos ingresados.
-Boton 'Mostrar Calculos', muestra gasto maximo, minimo y promedio total.
-Boton 'Filtrar Categoria', solicita ingresar categoria a filtrar y muestra gastos.
-Boton 'Reset Gastos', elimina gastos ingresados`);*/
+alert(
+`Se ingresan en automaticamente 9 gastos en 3 categorias diferentes para facilitar pruebas y visualizacion.
+        
+Se agrega interaccion con HTML:
+    - Se puede ingresar un nuevo gasto desde el Formularo
+    - La tabla Detalle gasto visualiza los gastos ingresados
+    - Boton 'Reset Gastos', elimina gastos ingresados y elimina contenido de la tabla
+        
+Sin interaccion con HTML:
+    -Boton 'Mostrar Calculos', muestra gasto maximo, minimo y promedio total.
+    -Boton 'Filtrar Categoria', solicita ingresar categoria a filtrar y muestra gastos.`);
 
 //Def variables globales
 let gasto_total = 0;
@@ -113,21 +118,6 @@ function addRowTable(objeto){
             }
         }
 }
-
-//Muestra gastos realizados recorriendo el array
-function mostrarGastos() {
-    let mensajeGastos = "";
-    if (arrayGastos.length > 0) {
-        mensajeGastos = "Gastos realizados\n";
-        arrayGastos.forEach(gasto => {
-            mensajeGastos += `Fecha: ${gasto.fecha} | Categoria: ${gasto.categoria} | Valor: ${gasto.valor.toFixed(2)}\n`;
-        });
-        alert(mensajeGastos);
-    } else {
-        mensajeGastos += 'No se ingresaron gastos';
-        alert(mensajeGastos);
-    }
-}
 //Devuelve la posicion del gasto maximo
 const maxGasto = () => {
     const valores = arrayGastos.map((object) => object.valor);
@@ -193,7 +183,20 @@ const filtrar = () => {
 
     } 
 }
-
+//Muestra gastos realizados recorriendo el array
+function mostrarGastos() {
+    let mensajeGastos = "";
+    if (arrayGastos.length > 0) {
+        mensajeGastos = "Gastos realizados\n";
+        arrayGastos.forEach(gasto => {
+            mensajeGastos += `Fecha: ${gasto.fecha} | Categoria: ${gasto.categoria} | Valor: ${gasto.valor.toFixed(2)}\n`;
+        });
+        alert(mensajeGastos);
+    } else {
+        mensajeGastos += 'No se ingresaron gastos';
+        alert(mensajeGastos);
+    }
+}
 // se ingresan automaticamente 9 gastos para poder utilizar funciones de calculo
 for(let i=0;i<3;i++)
 {
