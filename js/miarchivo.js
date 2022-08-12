@@ -11,6 +11,7 @@ let gasto_total = 0;
 let promedio = 0;
 let gasto_max = 0;
 let gasto_min = 0;
+let ID_GASTO_GLOBAL = 0;
 
 //Def array para almacenar objetos creados de clase Gasto
 let arrayGastos = [];
@@ -23,6 +24,7 @@ class Gasto {
         this.valor = valor;
         this.remito = remito;
         this.pago = pago;
+        this.ID = `ID_GASTO_${ID_GASTO_GLOBAL++}`;
     }
     //metodo retorna nodo de celda de tabal segun parametro atributo
     returnNodoCeldaTabla(atributo)
@@ -53,7 +55,7 @@ const resetGastos = (dias) => {
     while (arrayGastos.length) {
          arrayGastos.pop();
     }
-    
+    ID_GASTO_GLOBAL = 0;
     alertStatus();
 
 }
@@ -86,17 +88,19 @@ function addRowTable(objeto){
         let tableElements = document.getElementById("tableElements");
         // creo nodo fila
         nodofila = document.createElement("tr");
-     //   nodofila.id= "Fila 1"; 
+        nodofila.id= objeto.ID; 
         tableElements.appendChild(nodofila);
 
         // creo nodo celda para index de array de gastos
         let nodo_index =document.createElement('td');
         nodo_index.innerText=`${arrayGastos.length}`;
-        tableElements.appendChild(nodo_index);
+        nodofila.appendChild(nodo_index);
 
         // Utilizo metodo de clase para generar nodos para cada atributo y completar al tabla
         for( const atributo in objeto){
-            tableElements.appendChild(objeto.returnNodoCeldaTabla(atributo)); 
+            if(atributo!="ID"){
+                nodofila.appendChild(objeto.returnNodoCeldaTabla(atributo)); 
+            }
         }
 }
 //Muestra gastos realizados recorriendo el array
