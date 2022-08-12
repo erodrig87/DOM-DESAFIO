@@ -33,6 +33,11 @@ class Gasto {
         nodo.innerText=`${this[atributo]}`;
         return nodo;
     }
+    deleteCompleteRow()  
+    {     
+        let row = document.getElementById(this.ID);
+        row.parentNode.removeChild(row);
+    }
     //boolCategoria = (check_categoria) => (this.categoria == check_categoria) ? true : false; Metodo devuelve bool segun valor categoria || no utilizado
 }
 
@@ -48,11 +53,15 @@ function alertStatus() {
 
 //Funcion resetea variables globales y elimina objetos del array de gastos
 const resetGastos = (dias) => {
+    arrayGastos.forEach(function(gasto) { gasto.deleteCompleteRow()});
     gasto_total = 0;
     promedio = 0;
     gasto_max =0;
     gasto_min = 0;
-    while (arrayGastos.length) {
+
+
+
+   while (arrayGastos.length) {
          arrayGastos.pop();
     }
     ID_GASTO_GLOBAL = 0;
@@ -66,6 +75,7 @@ const restarDias = (dias) => {
     fecha.setDate(fecha.getDate() - dias);
     return fecha;
 }
+
 //crea un objeto gasto tomando los parametros ingresados en el form
 const crearGasto = () => {
     fecha = new Date(document.getElementById("inputDate").value);    
@@ -103,6 +113,7 @@ function addRowTable(objeto){
             }
         }
 }
+
 //Muestra gastos realizados recorriendo el array
 function mostrarGastos() {
     let mensajeGastos = "";
